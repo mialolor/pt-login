@@ -38,7 +38,6 @@ class GoogleLoginController extends Controller
     {
         try {
             $googleUser  = Socialite::driver('google')->user();
-            
 
             $user = User::where('google_id', $googleUser ->id)->first();
 

@@ -1,7 +1,30 @@
 
 <x-guest-layout>
 
+    <style>
+        /* Center the button container */
+        .button-container {
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            background-color: darkgoldenrod;
+            padding-left: 43%;
+            padding-right: 43%;
+        }
+        .login-link {
+            text-emphasis-color: yellow;
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        .login-link a {
+            color: darkgoldenrod;
+            text-decoration: underline;
+            font-weight: bold;
+        }
 
+
+        
+    </style>
 
 
     <form method="POST" action="{{ route('register') }}">
@@ -47,14 +70,18 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ms-4">
+        <!-- Button Container -->
+        <div class="mt-4">
+            <x-primary-button class="button-container">
                 {{ __('Register') }}
             </x-primary-button>
         </div>
+
+        <!-- Register Link -->
+        <div class="login-link">
+            Already have an account? <a href="{{ route('login') }}">Click here to Login</a>
+        </div>
+
+        
     </form>
 </x-guest-layout>
